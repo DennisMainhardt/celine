@@ -33,13 +33,13 @@ const Navbar = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#about" className="text-foreground hover:text-secondary transition-colors duration-300">About</a>
-          <a href="#services" className="text-foreground hover:text-secondary transition-colors duration-300">Services</a>
-          <a href="#gallery" className="text-foreground hover:text-secondary transition-colors duration-300">Gallery</a>
-          <a href="#testimonials" className="text-foreground hover:text-secondary transition-colors duration-300">Testimonials</a>
-          <a href="#contact" className="text-foreground hover:text-secondary transition-colors duration-300">Contact</a>
+          <a href="#about" className="text-foreground hover:text-secondary transition-colors duration-300">Über Uns</a>
+          <a href="#services" className="text-foreground hover:text-secondary transition-colors duration-300">Dienstleistungen</a>
+          <a href="#gallery" className="text-foreground hover:text-secondary transition-colors duration-300">Galerie</a>
+          <a href="#testimonials" className="text-foreground hover:text-secondary transition-colors duration-300">Kundenstimmen</a>
+          <a href="#contact" className="text-foreground hover:text-secondary transition-colors duration-300">Kontakt</a>
           <Button className="bg-secondary hover:bg-secondary/90">
-            Book Now
+            Jetzt Buchen
           </Button>
         </nav>
         
@@ -57,13 +57,13 @@ const Navbar = () => {
         )}
       >
         <nav className="container-custom flex flex-col py-6 space-y-4">
-          <a href="#about" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">About</a>
-          <a href="#services" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Services</a>
-          <a href="#gallery" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Gallery</a>
-          <a href="#testimonials" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Testimonials</a>
-          <a href="#contact" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Contact</a>
+          <a href="#about" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Über Uns</a>
+          <a href="#services" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Dienstleistungen</a>
+          <a href="#gallery" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Galerie</a>
+          <a href="#testimonials" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Kundenstimmen</a>
+          <a href="#contact" className="text-foreground hover:text-secondary transition-colors duration-300 py-2">Kontakt</a>
           <Button className="bg-secondary hover:bg-secondary/90 w-full mt-4">
-            Book Now
+            Jetzt Buchen
           </Button>
         </nav>
       </div>

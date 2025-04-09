@@ -15,7 +15,7 @@ const Footer = () => {
               <h3 className="text-2xl font-bold">SHARP<span className="text-secondary">CUT</span></h3>
             </div>
             <p className="text-white/80 max-w-md mb-6">
-              Premium barbering services with a focus on precision, quality, and customer satisfaction. Experience the art of grooming at SharpCut.
+              Premium Barber-Services mit Fokus auf Präzision, Qualität und Kundenzufriedenheit. Erleben Sie die Kunst der Pflege bei SharpCut.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full">
@@ -31,38 +31,38 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-bold text-lg mb-6">Quick Links</h4>
+            <h4 className="font-bold text-lg mb-6">Schnelllinks</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#about" className="text-white/80 hover:text-secondary transition-colors">About Us</a>
+                <a href="#about" className="text-white/80 hover:text-secondary transition-colors">Über Uns</a>
               </li>
               <li>
-                <a href="#services" className="text-white/80 hover:text-secondary transition-colors">Services</a>
+                <a href="#services" className="text-white/80 hover:text-secondary transition-colors">Dienstleistungen</a>
               </li>
               <li>
-                <a href="#gallery" className="text-white/80 hover:text-secondary transition-colors">Gallery</a>
+                <a href="#gallery" className="text-white/80 hover:text-secondary transition-colors">Galerie</a>
               </li>
               <li>
-                <a href="#testimonials" className="text-white/80 hover:text-secondary transition-colors">Testimonials</a>
+                <a href="#testimonials" className="text-white/80 hover:text-secondary transition-colors">Kundenstimmen</a>
               </li>
               <li>
-                <a href="#contact" className="text-white/80 hover:text-secondary transition-colors">Contact</a>
+                <a href="#contact" className="text-white/80 hover:text-secondary transition-colors">Kontakt</a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold text-lg mb-6">Contact Info</h4>
+            <h4 className="font-bold text-lg mb-6">Kontaktinformationen</h4>
             <ul className="space-y-3">
               <li className="text-white/80">
-                123 Main Street, Downtown<br />
-                New York, NY 10001
+                Potsdamer Platz<br />
+                10785 Berlin, Deutschland
               </li>
               <li>
-                <a href="tel:+15551234567" className="text-white/80 hover:text-secondary transition-colors">(555) 123-4567</a>
+                <a href="tel:+4915512345678" className="text-white/80 hover:text-secondary transition-colors">+49 155 1234 5678</a>
               </li>
               <li>
-                <a href="mailto:info@sharpcut.com" className="text-white/80 hover:text-secondary transition-colors">info@sharpcut.com</a>
+                <a href="mailto:info@sharpcut.de" className="text-white/80 hover:text-secondary transition-colors">info@sharpcut.de</a>
               </li>
             </ul>
           </div>
@@ -70,12 +70,12 @@ const Footer = () => {
         
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/60 text-sm">
-            © {currentYear} SharpCut Barbershop. All rights reserved.
+            © {currentYear} SharpCut Barbershop. Alle Rechte vorbehalten.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-white/60 hover:text-white text-sm">Privacy Policy</a>
-            <a href="#" className="text-white/60 hover:text-white text-sm">Terms of Service</a>
-            <a href="#" className="text-white/60 hover:text-white text-sm">Sitemap</a>
+            <a href="#" className="text-white/60 hover:text-white text-sm">Datenschutz</a>
+            <a href="#" className="text-white/60 hover:text-white text-sm">AGB</a>
+            <a href="#" className="text-white/60 hover:text-white text-sm">Impressum</a>
           </div>
         </div>
       </div>
