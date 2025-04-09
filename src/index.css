@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
+    --background: 40 30% 98%;
     --foreground: 220 40% 12%;
 
     --card: 0 0% 100%;
@@ -14,26 +14,26 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 40% 12%;
 
-    --primary: 220 55% 15%;
-    --primary-foreground: 210 20% 98%;
+    --primary: 208 55% 20%;
+    --primary-foreground: 40 30% 98%;
 
-    --secondary: 25 70% 45%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 25 85% 55%;
+    --secondary-foreground: 40 30% 98%;
 
-    --muted: 210 20% 92%;
+    --muted: 40 20% 92%;
     --muted-foreground: 220 40% 45%;
 
-    --accent: 25 70% 45%;
-    --accent-foreground: 210 20% 98%;
+    --accent: 25 85% 55%;
+    --accent-foreground: 40 30% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive-foreground: 40 30% 98%;
 
     --border: 220 40% 85%;
     --input: 220 40% 85%;
-    --ring: 220 55% 15%;
+    --ring: 208 55% 20%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   body {
@@ -46,7 +46,7 @@
   }
   
   .service-item {
-    @apply transition-all duration-300 hover:bg-primary/5;
+    @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:bg-primary/5;
   }
   
   .underline-hover {
@@ -60,14 +60,22 @@
   }
   
   .section-padding {
-    @apply py-12 md:py-20;
+    @apply py-16 md:py-24;
   }
   
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center rounded-md px-8 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-10 items-center justify-center rounded-md px-8 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-md hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 inline-flex h-10 items-center justify-center rounded-md px-8 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 inline-flex h-10 items-center justify-center rounded-md px-8 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 shadow-md hover:shadow-lg;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px];
+  }
+  
+  .section-title {
+    @apply relative inline-block pb-2 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-1 after:w-24 after:bg-secondary after:rounded-full;
   }
 }

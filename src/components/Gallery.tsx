@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Instagram } from "lucide-react";
+import { Instagram, ExternalLink } from "lucide-react";
 
 const images = [
   {
@@ -34,39 +34,45 @@ const Gallery = () => {
   return (
     <section id="gallery" className="section-padding bg-white">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Showcase of Our Work</h2>
-          <p className="text-muted-foreground">
-            Browse through a selection of our finest cuts and styles. Each image represents our commitment to precision, quality, and personalized service.
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 section-title">Our Gallery</h2>
+          <p className="text-muted-foreground mt-6">
+            Browse through our finest cuts and styles that have transformed our clients. 
+            Each image represents our commitment to precision and personalized service.
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
           {images.map((image, index) => (
-            <div key={index} className="relative group overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+            <div key={index} className="relative group overflow-hidden rounded-xl shadow-md card-hover">
               <div className="aspect-square w-full">
                 <img 
                   src={image.url} 
                   alt={`Haircut style - ${image.style}`} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                <div className="p-4 w-full">
-                  <p className="text-white font-bold">{image.style}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end">
+                <div className="p-5 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-white font-bold text-lg">{image.style}</p>
+                  <button className="mt-2 text-secondary flex items-center text-sm font-medium hover:text-white transition-colors">
+                    <span>View details</span>
+                    <ExternalLink className="ml-1 h-3 w-3" />
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="mt-12 text-center">
-          <Button className="flex items-center gap-2">
+        <div className="mt-16 text-center bg-primary/5 py-8 px-6 rounded-xl shadow-sm">
+          <h3 className="text-xl font-bold mb-4">See More of Our Work</h3>
+          <Button className="flex items-center gap-2 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary shadow-md">
             <Instagram className="h-5 w-5" />
             Follow Us on Instagram
           </Button>
           <p className="text-muted-foreground text-sm mt-4">
-            See more of our work and daily updates on our Instagram
+            Stay updated with our latest styles and transformations
           </p>
         </div>
       </div>
