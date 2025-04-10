@@ -6,50 +6,50 @@ import { Calendar, Scissors, Clock } from "lucide-react";
 const services = [
   {
     id: 1,
-    name: "Classic Haircut",
-    description: "Precision cut tailored to your face shape and style preferences, includes wash and styling.",
-    price: "$30",
-    duration: "45 min",
+    name: "Klassischer Haarschnitt",
+    description: "Präziser Schnitt, abgestimmt auf Ihre Gesichtsform und Stilvorlieben, inklusive Waschen und Styling.",
+    price: "30€",
+    duration: "45 Min.",
     popular: true
   },
   {
     id: 2,
-    name: "Beard Trim & Shape",
-    description: "Expert beard grooming to enhance your facial features with precision detailing.",
-    price: "$25",
-    duration: "30 min",
+    name: "Bart Trimmen & Formen",
+    description: "Professionelle Bartpflege zur Verbesserung Ihrer Gesichtszüge mit präziser Detailarbeit.",
+    price: "25€",
+    duration: "30 Min.",
     popular: false
   },
   {
     id: 3,
-    name: "Premium Package",
-    description: "Complete grooming experience including haircut, beard trim, hot towel treatment and styling.",
-    price: "$50",
-    duration: "75 min",
+    name: "Premium Paket",
+    description: "Komplettes Pflegeerlebnis inklusive Haarschnitt, Barttrimmen, Heißtuchbehandlung und Styling.",
+    price: "50€",
+    duration: "75 Min.",
     popular: false
   },
   {
     id: 4,
-    name: "Hot Towel Shave",
-    description: "Traditional straight razor shave with hot towel preparation for the smoothest finish.",
-    price: "$35",
-    duration: "45 min",
+    name: "Heißtuch-Rasur",
+    description: "Traditionelle Rasur mit dem Rasiermesser und Heißtuchvorbereitung für das glatteste Finish.",
+    price: "35€",
+    duration: "45 Min.",
     popular: false
   },
   {
     id: 5,
-    name: "Hair & Beard Coloring",
-    description: "Professional color application to cover grays or try a new look with natural-looking results.",
-    price: "$45+",
-    duration: "60+ min",
+    name: "Haar- & Bartfärbung",
+    description: "Professionelles Färben zum Abdecken grauer Haare oder für einen neuen Look mit natürlich wirkendem Ergebnis.",
+    price: "45€+",
+    duration: "60+ Min.",
     popular: false
   },
   {
     id: 6,
-    name: "Kids Haircut (Under 12)",
-    description: "Gentle, patient service for our younger clients with style options suitable for their age.",
-    price: "$20",
-    duration: "30 min",
+    name: "Kinderhaarschnitt (Unter 12)",
+    description: "Sanfter, geduldiger Service für unsere jüngeren Kunden mit altersgerechten Stiloptionen.",
+    price: "20€",
+    duration: "30 Min.",
     popular: false
   }
 ];
@@ -59,9 +59,9 @@ const Services = () => {
     <section id="services" className="section-padding bg-gradient-to-b from-background to-primary/5">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 section-title">Our Services</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 section-title">Unsere Leistungen</h2>
           <p className="text-muted-foreground mt-6">
-            Expert grooming services tailored to enhance your unique features. From precision haircuts to luxurious hot towel shaves, experience barbering at its finest.
+            Professionelle Pflegedienstleistungen, maßgeschneidert zur Verbesserung Ihrer individuellen Merkmale. Von präzisen Haarschnitten bis hin zu luxuriösen Heißtuch-Rasuren - erleben Sie Barbierkunst auf höchstem Niveau.
           </p>
         </div>
         
@@ -75,7 +75,7 @@ const Services = () => {
             >
               {service.popular && (
                 <div className="absolute right-0 top-6 bg-secondary text-white px-4 py-1 text-sm font-medium -mr-8 transform rotate-45 shadow-md">
-                  Popular
+                  Beliebt
                 </div>
               )}
               <h3 className="text-xl font-bold mb-3">{service.name}</h3>
@@ -90,7 +90,7 @@ const Services = () => {
                 </div>
                 <Button variant="outline" size="sm" className="border-secondary text-secondary hover:bg-secondary hover:text-white">
                   <Calendar className="h-4 w-4 mr-1" />
-                  Book Now
+                  Jetzt Buchen
                 </Button>
               </div>
             </div>
@@ -99,11 +99,11 @@ const Services = () => {
         
         <div className="mt-16 text-center bg-white p-8 rounded-xl shadow-md">
           <p className="text-muted-foreground mb-6">
-            All services include a consultation to understand your preferences and styling needs.
+            Alle Leistungen beinhalten eine Beratung, um Ihre Vorlieben und Styling-Bedürfnisse zu verstehen.
           </p>
           <Button className="bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary shadow-md">
             <Scissors className="h-4 w-4 mr-2" />
-            View Full Service Menu
+            Komplette Leistungsliste Ansehen
           </Button>
         </div>
       </div>

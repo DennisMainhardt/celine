@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Check, Clock, Phone, MapPin, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
+import GoogleMap from "./GoogleMap";
 
 const timeSlots = [
-  "9:00 AM", "10:00 AM", "11:00 AM", "1:00 PM", 
-  "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"
+  "9:00 Uhr", "10:00 Uhr", "11:00 Uhr", "13:00 Uhr", 
+  "14:00 Uhr", "15:00 Uhr", "16:00 Uhr", "17:00 Uhr"
 ];
 
 const BookingForm = () => {
@@ -38,19 +39,19 @@ const BookingForm = () => {
     // Simple validation
     if (!formData.name || !formData.email || !formData.service || !formData.date || !formData.time) {
       toast({
-        title: "Missing information",
-        description: "Please fill in all required fields.",
+        title: "Fehlende Informationen",
+        description: "Bitte füllen Sie alle erforderlichen Felder aus.",
         variant: "destructive"
       });
       return;
     }
     
     // In a real application, this would send the booking to a backend
-    console.log("Booking submitted:", formData);
+    console.log("Buchung übermittelt:", formData);
     
     toast({
-      title: "Booking Requested",
-      description: "We've received your appointment request. We'll confirm shortly!",
+      title: "Terminanfrage erhalten",
+      description: "Wir haben Ihre Terminanfrage erhalten. Wir bestätigen Ihnen in Kürze!",
       duration: 5000,
     });
     
@@ -62,9 +63,9 @@ const BookingForm = () => {
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Book Your Appointment</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Termin Buchen</h2>
             <p className="text-muted-foreground mb-8">
-              Schedule your visit in just a few clicks. Choose your preferred service, date, and time.
+              Vereinbaren Sie Ihren Besuch mit nur wenigen Klicks. Wählen Sie Ihren gewünschten Service, Datum und Uhrzeit.
             </p>
             
             {!submitted ? (
@@ -72,7 +73,7 @@ const BookingForm = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Your Name*
+                      Ihr Name*
                     </label>
                     <input
                       type="text"
@@ -86,7 +87,7 @@ const BookingForm = () => {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email Address*
+                      E-Mail Adresse*
                     </label>
                     <input
                       type="email"
@@ -102,7 +103,7 @@ const BookingForm = () => {
                 
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                    Phone Number*
+                    Telefonnummer*
                   </label>
                   <input
                     type="tel"
@@ -117,7 +118,7 @@ const BookingForm = () => {
                 
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium mb-2">
-                    Select Service*
+                    Service Auswählen*
                   </label>
                   <select
                     id="service"
@@ -127,19 +128,19 @@ const BookingForm = () => {
                     className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
                     required
                   >
-                    <option value="">Choose a service</option>
-                    <option value="Classic Haircut">Classic Haircut - $30</option>
-                    <option value="Beard Trim & Shape">Beard Trim & Shape - $25</option>
-                    <option value="Premium Package">Premium Package - $50</option>
-                    <option value="Hot Towel Shave">Hot Towel Shave - $35</option>
-                    <option value="Hair & Beard Coloring">Hair & Beard Coloring - $45+</option>
-                    <option value="Kids Haircut">Kids Haircut - $20</option>
+                    <option value="">Service auswählen</option>
+                    <option value="Classic Haircut">Klassischer Haarschnitt - 30€</option>
+                    <option value="Beard Trim & Shape">Bart Trimmen & Formen - 25€</option>
+                    <option value="Premium Package">Premium Paket - 50€</option>
+                    <option value="Hot Towel Shave">Heißtuch-Rasur - 35€</option>
+                    <option value="Hair & Beard Coloring">Haar- & Bartfärbung - 45€+</option>
+                    <option value="Kids Haircut">Kinderhaarschnitt - 20€</option>
                   </select>
                 </div>
                 
                 <div>
                   <label htmlFor="date" className="block text-sm font-medium mb-2">
-                    Preferred Date*
+                    Wunschtermin*
                   </label>
                   <div className="relative">
                     <input
@@ -158,7 +159,7 @@ const BookingForm = () => {
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">
-                    Preferred Time*
+                    Wunschuhrzeit*
                   </label>
                   <div className="grid grid-cols-4 gap-2">
                     {timeSlots.map((time) => (
@@ -180,7 +181,7 @@ const BookingForm = () => {
                 </div>
                 
                 <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-lg py-6">
-                  Book Appointment
+                  Termin Buchen
                 </Button>
               </form>
             ) : (
@@ -188,23 +189,23 @@ const BookingForm = () => {
                 <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-secondary/20 mb-4">
                   <Check className="h-8 w-8 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Booking Request Received!</h3>
+                <h3 className="text-2xl font-bold mb-4">Terminanfrage Erhalten!</h3>
                 <p className="text-muted-foreground mb-6">
-                  Thanks for your booking request. We'll confirm your appointment for {formData.service} on {formData.date} at {formData.time} shortly via email or phone.
+                  Vielen Dank für Ihre Terminanfrage. Wir werden Ihren Termin für {formData.service} am {formData.date} um {formData.time} in Kürze per E-Mail oder Telefon bestätigen.
                 </p>
                 <Button 
                   onClick={() => setSubmitted(false)} 
                   variant="outline" 
                   className="mt-4"
                 >
-                  Book Another Appointment
+                  Weiteren Termin Buchen
                 </Button>
               </div>
             )}
           </div>
           
           <div className="bg-primary/5 p-8 rounded-lg">
-            <h3 className="text-2xl font-bold mb-6">Visit Us</h3>
+            <h3 className="text-2xl font-bold mb-6">Besuchen Sie Uns</h3>
             
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -212,11 +213,11 @@ const BookingForm = () => {
                   <MapPin className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Location</h4>
-                  <p className="text-muted-foreground">123 Main Street, Downtown</p>
-                  <p className="text-muted-foreground">New York, NY 10001</p>
+                  <h4 className="font-semibold mb-1">Standort</h4>
+                  <p className="text-muted-foreground">Potsdamer Platz</p>
+                  <p className="text-muted-foreground">10785 Berlin, Deutschland</p>
                   <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-secondary text-sm underline-hover mt-1 inline-block">
-                    Get Directions
+                    Route Planen
                   </a>
                 </div>
               </div>
@@ -226,14 +227,14 @@ const BookingForm = () => {
                   <Clock className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Business Hours</h4>
+                  <h4 className="font-semibold mb-1">Öffnungszeiten</h4>
                   <div className="grid grid-cols-2 gap-x-4 text-muted-foreground">
-                    <p>Monday - Friday</p>
-                    <p>9:00 AM - 6:00 PM</p>
-                    <p>Saturday</p>
-                    <p>9:00 AM - 4:00 PM</p>
-                    <p>Sunday</p>
-                    <p>Closed</p>
+                    <p>Montag - Freitag</p>
+                    <p>9:00 - 18:00 Uhr</p>
+                    <p>Samstag</p>
+                    <p>9:00 - 16:00 Uhr</p>
+                    <p>Sonntag</p>
+                    <p>Geschlossen</p>
                   </div>
                 </div>
               </div>
@@ -243,9 +244,9 @@ const BookingForm = () => {
                   <Phone className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Phone</h4>
-                  <a href="tel:+15551234567" className="text-muted-foreground underline-hover">
-                    (555) 123-4567
+                  <h4 className="font-semibold mb-1">Telefon</h4>
+                  <a href="tel:+4915512345678" className="text-muted-foreground underline-hover">
+                    +49 155 1234 5678
                   </a>
                 </div>
               </div>
@@ -255,20 +256,16 @@ const BookingForm = () => {
                   <Mail className="h-6 w-6 text-secondary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Email</h4>
-                  <a href="mailto:info@sharpcut.com" className="text-muted-foreground underline-hover">
-                    info@sharpcut.com
+                  <h4 className="font-semibold mb-1">E-Mail</h4>
+                  <a href="mailto:info@sharpcut.de" className="text-muted-foreground underline-hover">
+                    info@sharpcut.de
                   </a>
                 </div>
               </div>
             </div>
             
             <div className="mt-8 relative h-64 rounded-lg overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
-                alt="SharpCut Barbershop interior" 
-                className="w-full h-full object-cover"
-              />
+              <GoogleMap />
             </div>
           </div>
         </div>
