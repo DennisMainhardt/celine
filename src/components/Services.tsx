@@ -8,7 +8,6 @@ const services = [
     name: "Klassischer Haarschnitt",
     description: "Präziser Schnitt, abgestimmt auf Ihre Gesichtsform und Stilvorlieben, inklusive Waschen und Styling.",
     price: "30€",
-    duration: "45 Min.",
     popular: true
   },
   {
@@ -16,7 +15,6 @@ const services = [
     name: "Bart Trimmen & Formen",
     description: "Professionelle Bartpflege zur Verbesserung Ihrer Gesichtszüge mit präziser Detailarbeit.",
     price: "25€",
-    duration: "30 Min.",
     popular: false
   },
   {
@@ -24,7 +22,6 @@ const services = [
     name: "Premium Paket",
     description: "Komplettes Pflegeerlebnis inklusive Haarschnitt, Barttrimmen, Heißtuchbehandlung und Styling.",
     price: "50€",
-    duration: "75 Min.",
     popular: false
   },
   {
@@ -32,15 +29,13 @@ const services = [
     name: "Heißtuch-Rasur",
     description: "Traditionelle Rasur mit dem Rasiermesser und Heißtuchvorbereitung für das glatteste Finish.",
     price: "35€",
-    duration: "45 Min.",
     popular: false
   },
   {
     id: 5,
     name: "Haar- & Bartfärbung",
-    description: "Professionelles Färben zum Abdecken grauer Haare oder für einen neuen Look mit natürlich wirkendem Ergebnis.",
+    description: "Professionelles Färben zum Abdecken grauer Haare oder für einen natürlichen Look.",
     price: "45€+",
-    duration: "60+ Min.",
     popular: false
   },
   {
@@ -48,7 +43,6 @@ const services = [
     name: "Kinderhaarschnitt (Unter 12)",
     description: "Sanfter, geduldiger Service für unsere jüngeren Kunden mit altersgerechten Stiloptionen.",
     price: "20€",
-    duration: "30 Min.",
     popular: false
   }
 ];
@@ -63,17 +57,17 @@ const Services = () => {
             Professionelle Pflegedienstleistungen, maßgeschneidert zur Verbesserung Ihrer individuellen Merkmale. Von präzisen Haarschnitten bis hin zu luxuriösen Heißtuch-Rasuren - erleben Sie Barbierkunst auf höchstem Niveau.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
           {services.map((service) => (
-            <div 
-              key={service.id} 
-              className={`service-item bg-white rounded-xl p-8 border border-border hover:border-secondary/50 transition-all duration-300 ${
-                service.popular ? "relative overflow-hidden shadow-xl border-secondary/50" : "shadow-md"
-              }`}
+
+            < div
+              key={service.id}
+              className={`service-item bg-white rounded-xl p-8 border border-border hover:border-secondary/50 transition-all duration-300 ${service.popular ? "relative overflow-hidden shadow-xl border-secondary/50" : "shadow-md"
+                }`}
             >
               {service.popular && (
-                <div className="absolute right-0 top-6 bg-secondary text-white px-4 py-1 text-sm font-medium -mr-8 transform rotate-45 shadow-md">
+                <div className="absolute right-4 top-4 bg-secondary text-white px-4 py-1 text-sm font-medium -mr-8 transform rotate-45 shadow-md">
                   Beliebt
                 </div>
               )}
@@ -82,10 +76,6 @@ const Services = () => {
               <div className="flex justify-between items-center">
                 <div>
                   <span className="text-2xl font-bold text-primary">{service.price}</span>
-                  <div className="flex items-center text-muted-foreground text-sm mt-1">
-                    <Clock className="h-3 w-3 mr-1" />
-                    <span>{service.duration}</span>
-                  </div>
                 </div>
                 <Button variant="outline" size="sm" className="border-secondary text-secondary hover:bg-secondary hover:text-white">
                   <Calendar className="h-4 w-4 mr-1" />
@@ -95,7 +85,7 @@ const Services = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center bg-white p-8 rounded-xl shadow-md">
           <p className="text-muted-foreground mb-6">
             Alle Leistungen beinhalten eine Beratung, um Ihre Vorlieben und Styling-Bedürfnisse zu verstehen.
@@ -106,7 +96,7 @@ const Services = () => {
           </Button>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

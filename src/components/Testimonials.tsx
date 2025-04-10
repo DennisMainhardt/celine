@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Star, Quote, ThumbsUp, MapPin, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -40,9 +39,8 @@ const renderStars = (rating: number) => {
   return Array.from({ length: 5 }).map((_, index) => (
     <Star
       key={index}
-      className={`h-5 w-5 ${
-        index < rating ? "text-secondary fill-secondary" : "text-gray-300"
-      }`}
+      className={`h-5 w-5 ${index < rating ? "text-secondary fill-secondary" : "text-gray-300"
+        }`}
     />
   ));
 };
@@ -52,7 +50,7 @@ const Testimonials = () => {
     <section id="testimonials" className="section-padding bg-primary/5 overflow-hidden">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1 bg-secondary/20 text-secondary rounded-full text-sm font-medium mb-3">
+          <span className="block mx-auto px-4 py-1 bg-secondary/20 text-secondary rounded-full text-sm font-medium mb-3 w-fit">
             Kundenbewertungen
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 section-title">Was unsere Kunden sagen</h2>
@@ -60,21 +58,21 @@ const Testimonials = () => {
             Nehmen Sie nicht nur unser Wort dafür. Lesen Sie, was unsere zufriedenen Kunden über ihre Erfahrungen bei SharpCut Barbershop sagen.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} 
+            <div key={testimonial.id}
               className="bg-white rounded-lg p-8 shadow-sm border border-border relative card-hover animate-fade-in"
             >
               <div className="absolute top-8 right-8 text-secondary/20">
                 <Quote className="h-12 w-12" />
               </div>
-              
+
               <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                 <div className="h-16 w-16 rounded-full overflow-hidden border-2 border-secondary">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name} 
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -84,9 +82,9 @@ const Testimonials = () => {
                   <div className="flex">{renderStars(testimonial.rating)}</div>
                 </div>
               </div>
-              
+
               <p className="text-muted-foreground mb-4">"{testimonial.text}"</p>
-              
+
               <div className="flex justify-between items-center mt-4">
                 <p className="text-xs text-muted-foreground/80">
                   {testimonial.date}
@@ -101,7 +99,7 @@ const Testimonials = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center p-8 bg-white rounded-lg shadow-sm border border-border max-w-3xl mx-auto card-hover">
           <h3 className="text-2xl font-bold mb-4">Bereit, den Unterschied zu erleben?</h3>
           <p className="text-muted-foreground mb-8">

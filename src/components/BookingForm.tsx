@@ -1,5 +1,4 @@
-
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Calendar, Check, Clock, Phone, MapPin, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -7,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import GoogleMap from "./GoogleMap";
 
 const timeSlots = [
-  "9:00 Uhr", "10:00 Uhr", "11:00 Uhr", "13:00 Uhr", 
+  "9:00 Uhr", "10:00 Uhr", "11:00 Uhr", "13:00 Uhr",
   "14:00 Uhr", "15:00 Uhr", "16:00 Uhr", "17:00 Uhr"
 ];
 
@@ -23,6 +22,12 @@ const BookingForm = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const dateInputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -35,7 +40,7 @@ const BookingForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simple validation
     if (!formData.name || !formData.email || !formData.service || !formData.date || !formData.time) {
       toast({
@@ -45,16 +50,16 @@ const BookingForm = () => {
       });
       return;
     }
-    
+
     // In a real application, this would send the booking to a backend
     console.log("Buchung übermittelt:", formData);
-    
+
     toast({
       title: "Terminanfrage erhalten",
       description: "Wir haben Ihre Terminanfrage erhalten. Wir bestätigen Ihnen in Kürze!",
       duration: 5000,
     });
-    
+
     setSubmitted(true);
   };
 
@@ -67,7 +72,7 @@ const BookingForm = () => {
             <p className="text-muted-foreground mb-8">
               Vereinbaren Sie Ihren Besuch mit nur wenigen Klicks. Wählen Sie Ihren gewünschten Service, Datum und Uhrzeit.
             </p>
-            
+
             {!submitted ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -100,7 +105,7 @@ const BookingForm = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium mb-2">
                     Telefonnummer*
@@ -115,7 +120,7 @@ const BookingForm = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium mb-2">
                     Service Auswählen*
@@ -137,26 +142,25 @@ const BookingForm = () => {
                     <option value="Kids Haircut">Kinderhaarschnitt - 20€</option>
                   </select>
                 </div>
-                
+
                 <div>
-                  <label htmlFor="date" className="block text-sm font-medium mb-2">
-                    Wunschtermin*
+                  <label htmlFor="date" className="block text-sm font-medium mb-1">
+                    Datum
                   </label>
-                  <div className="relative">
-                    <input
-                      type="date"
-                      id="date"
-                      name="date"
-                      value={formData.date}
-                      onChange={handleChange}
-                      min={new Date().toISOString().split("T")[0]} // Today's date as minimum
-                      className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
-                      required
-                    />
-                    <Calendar className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
-                  </div>
+                  <input
+                    type="date"
+                    id="date"
+                    name="date"
+                    value={formData.date}
+                    onChange={handleChange}
+                    min={new Date().toISOString().split("T")[0]} // Today's date as minimum
+                    className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-secondary"
+                    required
+                    ref={dateInputRef}
+                    onClick={() => dateInputRef.current?.showPicker()}
+                  />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium mb-2">
                     Wunschuhrzeit*
@@ -169,8 +173,8 @@ const BookingForm = () => {
                         onClick={() => handleTimeSelect(time)}
                         className={cn(
                           "py-2 px-2 text-sm border rounded-md transition-colors",
-                          formData.time === time 
-                            ? "bg-secondary text-white border-secondary" 
+                          formData.time === time
+                            ? "bg-secondary text-white border-secondary"
                             : "border-input hover:border-secondary/50"
                         )}
                       >
@@ -179,7 +183,7 @@ const BookingForm = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <Button type="submit" className="w-full bg-secondary hover:bg-secondary/90 text-lg py-6">
                   Termin Buchen
                 </Button>
@@ -193,9 +197,9 @@ const BookingForm = () => {
                 <p className="text-muted-foreground mb-6">
                   Vielen Dank für Ihre Terminanfrage. Wir werden Ihren Termin für {formData.service} am {formData.date} um {formData.time} in Kürze per E-Mail oder Telefon bestätigen.
                 </p>
-                <Button 
-                  onClick={() => setSubmitted(false)} 
-                  variant="outline" 
+                <Button
+                  onClick={() => setSubmitted(false)}
+                  variant="outline"
                   className="mt-4"
                 >
                   Weiteren Termin Buchen
@@ -203,10 +207,10 @@ const BookingForm = () => {
               </div>
             )}
           </div>
-          
+
           <div className="bg-primary/5 p-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-6">Besuchen Sie Uns</h3>
-            
+
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="bg-secondary/20 p-3 rounded-full flex-shrink-0">
@@ -221,7 +225,7 @@ const BookingForm = () => {
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="bg-secondary/20 p-3 rounded-full flex-shrink-0">
                   <Clock className="h-6 w-6 text-secondary" />
@@ -238,7 +242,7 @@ const BookingForm = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="bg-secondary/20 p-3 rounded-full flex-shrink-0">
                   <Phone className="h-6 w-6 text-secondary" />
@@ -250,7 +254,7 @@ const BookingForm = () => {
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="bg-secondary/20 p-3 rounded-full flex-shrink-0">
                   <Mail className="h-6 w-6 text-secondary" />
@@ -263,7 +267,7 @@ const BookingForm = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-8 relative h-64 rounded-lg overflow-hidden">
               <GoogleMap />
             </div>
