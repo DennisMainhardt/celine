@@ -218,8 +218,8 @@ const BookingForm = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Standort</h4>
-                  <p className="text-muted-foreground">Potsdamer Platz</p>
-                  <p className="text-muted-foreground">10785 Berlin, Deutschland</p>
+                  <p className="text-muted-foreground">Kölner Tor 11</p>
+                  <p className="text-muted-foreground">40625 Düsseldorf</p>
                   <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-secondary text-sm underline-hover mt-1 inline-block">
                     Route Planen
                   </a>
@@ -233,12 +233,18 @@ const BookingForm = () => {
                 <div>
                   <h4 className="font-semibold mb-1">Öffnungszeiten</h4>
                   <div className="grid grid-cols-2 gap-x-4 text-muted-foreground">
-                    <p>Montag - Freitag</p>
-                    <p>9:00 - 18:00 Uhr</p>
+                    <p>Montag</p>
+                    <p>Nach Vereinbarung</p>
+                    <p>Dienstag</p>
+                    <p>9:00 - 18:30 Uhr</p>
+                    <p>Mittwoch</p>
+                    <p>12:00 - 20:00 Uhr</p>
+                    <p>Donnerstag</p>
+                    <p>09:00 - 18:30 Uhr</p>
+                    <p>Freitag</p>
+                    <p>09:00 - 18:30 Uhr</p>
                     <p>Samstag</p>
-                    <p>9:00 - 16:00 Uhr</p>
-                    <p>Sonntag</p>
-                    <p>Geschlossen</p>
+                    <p>Nach Vereinbarung</p>
                   </div>
                 </div>
               </div>
@@ -250,7 +256,7 @@ const BookingForm = () => {
                 <div>
                   <h4 className="font-semibold mb-1">Telefon</h4>
                   <a href="tel:+4915512345678" className="text-muted-foreground underline-hover">
-                    +49 155 1234 5678
+                    +49 179 5256700
                   </a>
                 </div>
               </div>
@@ -261,8 +267,8 @@ const BookingForm = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">E-Mail</h4>
-                  <a href="mailto:info@sharpcut.de" className="text-muted-foreground underline-hover">
-                    info@sharpcut.de
+                  <a href="mailto:info@celine.de" className="text-muted-foreground underline-hover">
+                    info@celine.de
                   </a>
                 </div>
               </div>

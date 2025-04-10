@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Instagram, ExternalLink } from "lucide-react";
@@ -35,10 +34,9 @@ const Gallery = () => {
     <section id="gallery" className="section-padding bg-white">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 section-title">Our Gallery</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 section-title">Unsere Galerie</h2>
           <p className="text-muted-foreground mt-6">
-            Browse through our finest cuts and styles that have transformed our clients.
-            Each image represents our commitment to precision and personalized service.
+            Hier siehst du echte Ergebnisse – echte Menschen, echte Veränderungen. Jeder Look wurde mit Sorgfalt, Fingerspitzengefühl und einem offenen Ohr für die Wünsche unserer Kund*innen gestaltet. Lass dich inspirieren – vielleicht ist dein nächster Look schon dabei?
           </p>
         </div>
 
@@ -65,14 +63,21 @@ const Gallery = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center bg-primary/5 py-8 px-6 rounded-xl shadow-sm">
-          <h3 className="text-xl font-bold mb-4">See More of Our Work</h3>
-          <Button className="flex items-center gap-2 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary shadow-md justify-self-center">
-            <Instagram className="h-5 w-5" />
-            Follow Us on Instagram
-          </Button>
+        <div className="mt-16 text-center bg-white p-8 rounded-xl shadow-md border border-border">
+          <h3 className="text-xl font-bold mb-4">Entdecke mehr auf Instagram</h3>
+          <a
+            href="https://www.instagram.com/by_celine.hairstylist"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button className="flex items-center gap-2 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary shadow-md text-secondary-foreground">
+              <Instagram className="h-5 w-5" />
+              Folgt uns auf Instagram
+            </Button>
+          </a>
           <p className="text-muted-foreground text-sm mt-4">
-            Stay updated with our latest styles and transformations
+            Bleibt auf dem Laufenden mit unseren neuesten Styles und Inspirationen.
           </p>
         </div>
       </div>

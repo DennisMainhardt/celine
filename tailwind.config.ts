@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -50,9 +49,10 @@ export default {
 					foreground: 'hsl(var(--popover-foreground))'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: '#FFFFFF',
+					foreground: '#4A4A4A'
 				},
+				footer: '#1C1917',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

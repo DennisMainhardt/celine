@@ -1,81 +1,104 @@
-
 import React from "react";
-import { Facebook, Instagram, Twitter, Scissors } from "lucide-react";
+import { Facebook, Instagram, Twitter, Scissors, MapPin, Mail, Phone } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
+  const openingHours = {
+    "Montag": "Nach Vereinbarung",
+    "Dienstag": "9:00 - 18:30 Uhr",
+    "Mittwoch": "12:00 - 20:00 Uhr",
+    "Donnerstag": "09:00 - 18:30 Uhr",
+    "Freitag": "09:00 - 18:30 Uhr",
+    "Samstag": "Nach Vereinbarung"
+  };
+  const address = "Kölner Tor 11, 40625 Düsseldorf, Deutschland";
+  const phone = "+49 179 5256700";
+  const email = "info@celine.de";
+  const telLink = `tel:${phone.replace(/\s/g, '')}`;
+  const mailtoLink = `mailto:${email}`;
+  const mapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(address)}`;
+
   return (
-    <footer className="bg-primary text-white">
+    <footer className="bg-footer text-primary-foreground">
       <div className="container-custom py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
               <Scissors className="h-6 w-6 text-secondary" />
-              <h3 className="text-2xl font-bold">SHARP<span className="text-secondary">CUT</span></h3>
+              <h3 className="text-xl font-bold">by<span className="text-secondary">Celine</span></h3>
             </div>
-            <p className="text-white/80 max-w-md mb-6">
-              Premium Barber-Services mit Fokus auf Präzision, Qualität und Kundenzufriedenheit. Erleben Sie die Kunst der Pflege bei SharpCut.
+            <p className="text-primary-foreground/90 text-sm leading-relaxed mb-6">
+              Mit Liebe zum Detail, hochwertigen Produkten und ehrlicher Beratung entsteht hier mehr als nur ein neuer Look – nämlich ein Styling, das wirklich zu dir passt.
+              Typgerecht. Professionell. Persönlich.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full">
-                <Facebook className="h-5 w-5" />
+            <div className="flex space-x-3">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full text-primary-foreground">
+                <Instagram className="h-4 w-4" />
               </a>
-              <a href="#" className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full">
-                <Instagram className="h-5 w-5" />
+              <a href="#" target="_blank" rel="noopener noreferrer" className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full text-primary-foreground">
+                <Facebook className="h-4 w-4" />
               </a>
-              <a href="#" className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full">
-                <Twitter className="h-5 w-5" />
+              <a href={mailtoLink} className="bg-white/10 hover:bg-white/20 transition-colors p-2 rounded-full text-primary-foreground">
+                <Mail className="h-4 w-4" />
               </a>
             </div>
           </div>
-          
+
           <div>
-            <h4 className="font-bold text-lg mb-6">Schnelllinks</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#about" className="text-white/80 hover:text-secondary transition-colors">Über Uns</a>
+            <h4 className="font-bold text-lg mb-5">Kontakt</h4>
+            <ul className="space-y-3 text-sm mb-8">
+              <li className="flex items-start gap-3">
+                <MapPin className="h-4 w-4 mt-0.5 text-secondary shrink-0" />
+                <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="text-primary-foreground/90 hover:text-secondary transition-colors">
+                  {address.split(',')[0]}<br />{address.split(',').slice(1).join(',').trim()}
+                </a>
               </li>
-              <li>
-                <a href="#services" className="text-white/80 hover:text-secondary transition-colors">Dienstleistungen</a>
+              <li className="flex items-start gap-3">
+                <Mail className="h-4 w-4 mt-0.5 text-secondary shrink-0" />
+                <a href={mailtoLink} className="text-primary-foreground/90 hover:text-secondary transition-colors">{email}</a>
               </li>
-              <li>
-                <a href="#gallery" className="text-white/80 hover:text-secondary transition-colors">Galerie</a>
-              </li>
-              <li>
-                <a href="#testimonials" className="text-white/80 hover:text-secondary transition-colors">Kundenstimmen</a>
-              </li>
-              <li>
-                <a href="#contact" className="text-white/80 hover:text-secondary transition-colors">Kontakt</a>
+              <li className="flex items-start gap-3">
+                <Phone className="h-4 w-4 mt-0.5 text-secondary shrink-0" />
+                <a href={telLink} className="text-primary-foreground/90 hover:text-secondary transition-colors">{phone}</a>
               </li>
             </ul>
           </div>
-          
+
           <div>
-            <h4 className="font-bold text-lg mb-6">Kontaktinformationen</h4>
-            <ul className="space-y-3">
-              <li className="text-white/80">
-                Potsdamer Platz<br />
-                10785 Berlin, Deutschland
-              </li>
-              <li>
-                <a href="tel:+4915512345678" className="text-white/80 hover:text-secondary transition-colors">+49 155 1234 5678</a>
-              </li>
-              <li>
-                <a href="mailto:info@sharpcut.de" className="text-white/80 hover:text-secondary transition-colors">info@sharpcut.de</a>
-              </li>
+            <h4 className="font-bold text-lg mb-5">Navigation</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href="/#about" className="text-primary-foreground/90 hover:text-secondary transition-colors">Über Uns</a></li>
+              <li><Link to="/leistungen" className="text-primary-foreground/90 hover:text-secondary transition-colors">Leistungen</Link></li>
+              <li><a href="/#gallery" className="text-primary-foreground/90 hover:text-secondary transition-colors">Galerie</a></li>
+              <li><a href="/#contact" className="text-primary-foreground/90 hover:text-secondary transition-colors">Kontakt</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-bold text-lg mb-5">Öffnungszeiten</h4>
+            <ul className="space-y-2 text-sm">
+              {Object.entries(openingHours).map(([day, time]) => (
+                <li key={day} className="flex justify-between">
+                  <span className="text-primary-foreground/90">{day}</span>
+                  <span className="font-medium">{time}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/60 text-sm">
-            © {currentYear} SharpCut Barbershop. Alle Rechte vorbehalten.
+
+        <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-primary-foreground/75 text-xs text-center md:text-left">
+            © {currentYear} byCeline. Alle Rechte vorbehalten.
           </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-white/60 hover:text-white text-sm">Datenschutz</a>
-            <a href="#" className="text-white/60 hover:text-white text-sm">AGB</a>
-            <a href="#" className="text-white/60 hover:text-white text-sm">Impressum</a>
+          <div className="flex space-x-4 md:space-x-6">
+            <a href="#" className="text-primary-foreground/75 hover:text-white text-xs">Impressum</a>
+            <a href="#" className="text-primary-foreground/75 hover:text-white text-xs">Datenschutz</a>
+            <a href="#" className="text-primary-foreground/75 hover:text-white text-xs">AGB</a>
           </div>
         </div>
       </div>
