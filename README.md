@@ -1,4 +1,4 @@
-# Sharp Cut Design Boost
+# by Celine
 
 A modern web application built with Vite, React, TypeScript, and Shadcn UI.
 
@@ -29,9 +29,9 @@ Follow these steps to set up the project locally:
     ```
 2.  **Navigate to the project directory:**
     ```bash
-    cd sharp-cut-design-boost 
+    cd celine
     ```
-    _(Replace `sharp-cut-design-boost` with the actual directory name if different)_
+    _(Replace `celine` with the actual directory name if different)_
 3.  **Install dependencies:**
     ```bash
     npm install

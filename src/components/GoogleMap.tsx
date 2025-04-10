@@ -13,7 +13,7 @@ const GoogleMap = () => {
         allowFullScreen={false}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title="SharpCut Barbershop Standort"
+        title="by Celine Standort"
         className="absolute inset-0"
       ></iframe>
 
