@@ -59,7 +59,7 @@ const About = () => {
           <div className="w-full lg:w-1/2 order-1 lg:order-2 relative">
             <div className="relative aspect-square max-w-md mx-auto group overflow-hidden rounded-lg bg-secondary/30 p-[14px]">
               <img
-                src="/public/cel_profile.webp"
+                src="/cel_profile.webp"
                 alt="Master barber"
                 className="relative z-10 w-full h-full object-cover rounded-lg shadow-lg transition-transform duration-700 group-hover:scale-110"
               />
