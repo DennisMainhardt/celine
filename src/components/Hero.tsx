@@ -10,7 +10,6 @@ const Hero = () => {
         backgroundImage: `url('/hero.webp')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/60 to-black/70 z-0"></div>
